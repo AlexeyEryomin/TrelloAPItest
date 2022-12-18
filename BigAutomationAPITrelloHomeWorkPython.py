@@ -1,3 +1,5 @@
+import requests
+import json
 # Автоматизировннный тест на языке PYTHON для доски TRELLO с получением статус кода об успехе или провале запроса
 # Тест включает в себя шаги
 # Доска
@@ -36,8 +38,7 @@ myToken2 = "????????????????????????????????????????????????????????????????????
 
 print('Работа с досками')
 print('шаг 1 Добавление доски')
-import requests
-import json
+
 
 url = f'{baseUrl}/1/boards/'
 
@@ -73,8 +74,7 @@ id = id.replace('"', '')
 
 
 print ('шаг 2 Получение информации о доске')
-import requests
-import json
+
 url = f'{baseUrl}/1/boards/{id}'
 
 payload={}
@@ -100,8 +100,7 @@ print(response.text)
 
 print('шаг 3 Удаление доски') 
 
-import requests
-import json
+
 
 url = f'{baseUrl}/1/boards/{id}'
 
@@ -122,8 +121,7 @@ else:
 
 print('Работа с листами')
 print ('шаг 1 Добавление доски')
-import requests
-import json
+
 
 url = f'{baseUrl}/1/boards/'
 
@@ -159,8 +157,7 @@ id = id.replace('"', '')
 
 
 print ('шаг 2 Получение информации о доске')
-import requests
-import json
+
 url = f'{baseUrl}/1/boards/{id}'
 
 payload={}
@@ -185,8 +182,7 @@ else:
 print(response.text)
 
 print ('шаг 3 Создание листа на доске')
-import requests
-import json
+
 
 url = f"{baseUrl}/1/boards/{id}/lists"
 
@@ -217,8 +213,7 @@ listid = txt2[start2:end2]
 listid = listid.replace('"', '')
 
 print ('шаг 4 Получение информации о листе')
-import requests
-import json
+
 url = f'{baseUrl}/1/lists/{listid}'
 
 payload={}
@@ -243,8 +238,7 @@ else:
 print(response.text)
 
 print ('шаг 5 Удаление созданной доски чтобы не захламлять пространство в трелло')
-import requests
-import json
+
 
 url = f'{baseUrl}/1/boards/{id}'
 
@@ -265,8 +259,7 @@ else:
 
 print ('Работа с карточками')
 print ('шаг 1 Добавление доски')
-import requests
-import json
+
 
 url = f'{baseUrl}/1/boards/'
 
@@ -302,8 +295,7 @@ id = id.replace('"', '')
 
 
 print ('шаг 2 Получение информации о доске')
-import requests
-import json
+
 url = f'{baseUrl}/1/boards/{id}'
 
 payload={}
@@ -328,8 +320,7 @@ else:
 print(response.text)
 
 print ('шаг 3 Создание листа на доске')
-import requests
-import json
+
 
 url = f"{baseUrl}/1/boards/{id}/lists"
 
@@ -360,8 +351,7 @@ listid = txt2[start2:end2]
 listid = listid.replace('"', '')
 
 print ('шаг 4 Получение информации о листе')
-import requests
-import json
+
 url = f'{baseUrl}/1/lists/{listid}'
 
 payload={}
@@ -386,8 +376,7 @@ else:
 print(response.text)
 
 print ('шаг 5 Создание карточки на только что созданном листе')
-import requests
-import json
+
 
 url = f"{baseUrl}/1/lists/{listid}/cards"
 
@@ -420,8 +409,7 @@ cardid = cardid[47:]
 print(response.text)
 print(cardid)
 print ('шаг 6 Переименование созданной карточки')
-import requests
-import json
+
 
 url = f"{baseUrl}/1/cards/{cardid}"
 
@@ -443,8 +431,7 @@ else:
 
 print ('шаг 7 Создание второго листа')
 
-import requests
-import json
+
 
 url = f"{baseUrl}/1/boards/{id}/lists"
 
@@ -475,8 +462,7 @@ listid2 = txt4[start4:end4]
 listid2 = listid2.replace('"', '')
 
 print ('шаг 8 Перенос карточки на второй лист')
-import requests
-import json
+
 
 url = f"{baseUrl}/1/cards/{cardid}"
 
@@ -525,8 +511,7 @@ print(response.text)
 
 
 print ('шаг 10 Добавление комментария к карточке')
-import requests
-import json
+
 
 url = f"{baseUrl}/1/cards/{cardid}/actions/comments"
 
@@ -547,8 +532,7 @@ else:
     print ('Не работает!')
 
 print ('шаг 11 Удаление карточки')
-import requests
-import json
+
 
 url = f"{baseUrl}/1/cards/{cardid}"
 
@@ -568,8 +552,7 @@ else:
     print ('Не работает!')
 
 print ('шаг 12 Удаление созданной для теста доски чтобы не захламлять пространство в TRELLO')
-import requests
-import json
+
 
 url = f'{baseUrl}/1/boards/{id}'
 
